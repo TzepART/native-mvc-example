@@ -8,6 +8,7 @@
 
 namespace Model\Form\Field;
 
+
 /**
  * Class AbstractFormField
  * @package Model\Form\Field
@@ -40,10 +41,6 @@ abstract class AbstractFormField
         $this->value = $value;
     }
 
-    /**
-     * @return mixed
-     */
-    abstract public function isValidField();
 
     /**
      * @return string
@@ -78,4 +75,18 @@ abstract class AbstractFormField
         $this->error = $error;
         return $this;
     }
+
+    /**
+     * @return bool
+     */
+    public function isValidField()
+    {
+        if(empty($this->getError())){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    abstract public function checkValidField();
 }

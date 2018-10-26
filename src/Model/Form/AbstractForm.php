@@ -45,9 +45,9 @@ abstract class AbstractForm
     {
         $result = true;
 
-        foreach ($this->fields as $index => $field) {
+        foreach ($this->fields as $field) {
             if(!$field->isValidField()){
-                $result = true;
+                $result = false;
             }
         }
 

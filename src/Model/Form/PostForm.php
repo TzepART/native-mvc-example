@@ -25,11 +25,13 @@ class PostForm extends AbstractForm
     {
         foreach ($this->getFieldNames() as $fieldName) {
             if($this->request->isPostRequest()){
-                $this->fields[$fieldName] = new StringField($fieldName, $this->request->getPost()->getValueByKey($fieldName));
+                $this->fields[$fieldName] = (new StringField($fieldName, $this->request->getPost()->getValueByKey($fieldName)))
+                    ->checkValidField();
             }else{
                 $this->fields[$fieldName] = new StringField($fieldName, '');
             }
         }
+
         return $this;
     }
 

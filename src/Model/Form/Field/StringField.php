@@ -15,18 +15,16 @@ namespace Model\Form\Field;
  */
 class StringField extends AbstractFormField
 {
-
     /**
-     * TODO separate on 2 methods
-     * @return bool|mixed
+     * @return $this
      */
-    public function isValidField()
+    public function checkValidField()
     {
-        if($this->value){
-            return true;
-        }else{
-            $this->setError(printf('Please enter the %s', $this->name));
-            return false;
+        if(empty(trim($this->value))){
+            $this->setError(sprintf('Please enter the %s', $this->name));
         }
+
+        return $this;
     }
+
 }

@@ -25,6 +25,12 @@ abstract class BaseController
      */
     protected $sessionHelper;
 
+
+    /**
+     * @var Request
+     */
+    protected $request;
+
     /**
      * Posts constructor.
      */
@@ -32,6 +38,7 @@ abstract class BaseController
     {
         $this->urlHelper = new UrlHelper();
         $this->sessionHelper = new SessionHelper();
+        $this->request = new Request();
     }
 
     /**

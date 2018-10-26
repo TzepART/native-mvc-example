@@ -35,7 +35,7 @@ class PostController extends BaseController
     }
 
     /**
-     *
+     * Page with posts list
      */
     public function indexAction()
     {
@@ -50,6 +50,7 @@ class PostController extends BaseController
 
 
     /**
+     * Show post page
      * @param $id
      */
     public function showAction($id)
@@ -63,7 +64,7 @@ class PostController extends BaseController
     }
 
     /**
-     *
+     * Add post
      */
     public function addAction()
     {
@@ -92,6 +93,7 @@ class PostController extends BaseController
     }
 
     /**
+     * Update data of post
      * @param $id
      */
     public function editAction($id)
@@ -130,6 +132,7 @@ class PostController extends BaseController
     }
 
     /**
+     * Remove post
      * @param $id
      */
     public function deleteAction($id)

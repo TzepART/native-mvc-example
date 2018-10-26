@@ -13,3 +13,7 @@ CREATE TABLE `post` (
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `check24_db`.`post`
+ADD COLUMN `user` VARCHAR(100) NULL AFTER `created_at`;

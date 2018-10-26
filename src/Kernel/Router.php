@@ -1,6 +1,7 @@
 <?php
 
 namespace Kernel;
+use Controller\PageController;
 
 
 /**
@@ -21,7 +22,7 @@ class Router
     /**
      * @var string
      */
-    protected $currentController = '';
+    protected $currentController = PageController::class;
 
     /**
      * @var string

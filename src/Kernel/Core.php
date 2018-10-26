@@ -7,20 +7,39 @@ namespace Kernel;
  * Class Core
  * @package Kernel
  */
-class Core
+final class Core
 {
 
     /**
-     * Core constructor.
-     * TODO maybe add DB connection
+     * @var Core
      */
-    public function __construct()
+    private static $instance;
+
+    /**
+     * Core constructor.
+     */
+    private function __construct(){}
+
+    /**
+     * @return Core
+     */
+    public static function getInstance(): Core
+    {
+        if (!self::$instance) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
+    public function initResponse()
     {
         $router = new Router();
-
         //Call a callback with array of params
         call_user_func_array([$router->getCurrentController(), $router->getCurrentMethod()], $router->getParams());
     }
 
+    private function __clone(){}
+
+    private function __wakeup(){}
 
 }

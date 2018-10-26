@@ -61,6 +61,14 @@ abstract class AbstractFormField
     /**
      * @return string
      */
+    public function getFormattingValue()
+    {
+        return htmlspecialchars($this->value, ENT_QUOTES, 'UTF-8');;
+    }
+
+    /**
+     * @return string
+     */
     public function getError(): string
     {
         return $this->error;

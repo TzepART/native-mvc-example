@@ -11,14 +11,14 @@ require APP_SRC_ROOT . 'View/include/header.php';
             <label for="title">Title: <sup>*</sup></label>
             <input type="text" name="title"
                    class="form-control form-control <?= $data->getFieldByName('title')->isValidField() ? '' : 'is-invalid' ?>"
-                   value="<?= $data->getFieldByName('title')->getValue() ?>">
+                   value="<?= $data->getFieldByName('title')->getFormattingValue() ?>">
             <span class="invalid-feedback"><?= $data->getFieldByName('title')->getError() ?></span>
         </div>
         <div class="form-group">
             <label for="name">Body: <sup>*</sup></label>
             <textarea name="body"
                       class="form-control form-control <?= $data->getFieldByName('body')->isValidField() ? '' : 'is-invalid' ?>">
-                <?= $data->getFieldByName('body')->getValue() ?>
+                <?= $data->getFieldByName('body')->getFormattingValue() ?>
             </textarea>
             <span class="invalid-feedback"><?= $data->getFieldByName('body')->getError() ?></span>
         </div>

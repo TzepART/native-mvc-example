@@ -12,7 +12,7 @@ require APP_SRC_ROOT.'View/include/header.php';
            <label for="name">Login: <sup>*</sup></label>
             <input type="text" name="login" class="form-control form-control
             <?= $data->getFieldByName('login')->isValidField() ? '' : 'is-invalid';?>"
-                   value="<?= $data->getFieldByName('login')->getValue(); ?>">
+                   value="<?= $data->getFieldByName('login')->getFormattingValue(); ?>">
            <span class="invalid-feedback"><?= $data->getFieldByName('login')->getError(); ?></span>
         </div>
         <div class="form-group">

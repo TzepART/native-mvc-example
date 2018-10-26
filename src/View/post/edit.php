@@ -13,14 +13,14 @@ $postId = $data[1];
                 <label for="title">Title: <sup>*</sup></label>
                 <input type="text" name="title"
                        class="form-control form-control <?= $postForm->getFieldByName('title')->isValidField() ? '' : 'is-invalid' ?>"
-                       value="<?= $postForm->getFieldByName('title')->getValue() ?>">
+                       value="<?= $postForm->getFieldByName('title')->getFormattingValue() ?>">
                 <span class="invalid-feedback"><?= $postForm->getFieldByName('title')->getError() ?></span>
             </div>
             <div class="form-group">
                 <label for="name">Body: <sup>*</sup></label>
                 <textarea name="body"
                           class="form-control form-control <?= $postForm->getFieldByName('body')->isValidField() ? '' : 'is-invalid' ?>">
-                <?= $postForm->getFieldByName('body')->getValue() ?>
+                <?= $postForm->getFieldByName('body')->getFormattingValue() ?>
             </textarea>
                 <span class="invalid-feedback"><?= $postForm->getFieldByName('body')->getError() ?></span>
             </div>

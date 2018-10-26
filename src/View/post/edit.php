@@ -12,17 +12,17 @@ $postId = $data[1];
             <div class="form-group">
                 <label for="title">Title: <sup>*</sup></label>
                 <input type="text" name="title"
-                       class="form-control form-control <?= $postForm->getField('title')->isValidField() ? '' : 'is-invalid' ?>"
-                       value="<?= $postForm->getField('title')->getValue() ?>">
-                <span class="invalid-feedback"><?= $postForm->getField('title')->getError() ?></span>
+                       class="form-control form-control <?= $postForm->getFieldByName('title')->isValidField() ? '' : 'is-invalid' ?>"
+                       value="<?= $postForm->getFieldByName('title')->getValue() ?>">
+                <span class="invalid-feedback"><?= $postForm->getFieldByName('title')->getError() ?></span>
             </div>
             <div class="form-group">
                 <label for="name">Body: <sup>*</sup></label>
                 <textarea name="body"
-                          class="form-control form-control <?= $postForm->getField('body')->isValidField() ? '' : 'is-invalid' ?>">
-                <?= $postForm->getField('body')->getValue() ?>
+                          class="form-control form-control <?= $postForm->getFieldByName('body')->isValidField() ? '' : 'is-invalid' ?>">
+                <?= $postForm->getFieldByName('body')->getValue() ?>
             </textarea>
-                <span class="invalid-feedback"><?= $postForm->getField('body')->getError() ?></span>
+                <span class="invalid-feedback"><?= $postForm->getFieldByName('body')->getError() ?></span>
             </div>
             <input type="submit" class="btn btn-success" value="Submit"/>
         </form>

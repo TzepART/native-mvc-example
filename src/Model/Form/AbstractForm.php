@@ -58,7 +58,7 @@ abstract class AbstractForm
      * @param string $name
      * @return AbstractFormField
      */
-    public function getField(string $name)
+    public function getFieldByName(string $name)
     {
         return $this->fields[$name];
     }

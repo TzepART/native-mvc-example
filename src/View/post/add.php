@@ -10,17 +10,17 @@ require APP_SRC_ROOT . 'View/include/header.php';
         <div class="form-group">
             <label for="title">Title: <sup>*</sup></label>
             <input type="text" name="title"
-                   class="form-control form-control <?= $data->getField('title')->isValidField() ? '' : 'is-invalid' ?>"
-                   value="<?= $data->getField('title')->getValue() ?>">
-            <span class="invalid-feedback"><?= $data->getField('title')->getError() ?></span>
+                   class="form-control form-control <?= $data->getFieldByName('title')->isValidField() ? '' : 'is-invalid' ?>"
+                   value="<?= $data->getFieldByName('title')->getValue() ?>">
+            <span class="invalid-feedback"><?= $data->getFieldByName('title')->getError() ?></span>
         </div>
         <div class="form-group">
             <label for="name">Body: <sup>*</sup></label>
             <textarea name="body"
-                      class="form-control form-control <?= $data->getField('body')->isValidField() ? '' : 'is-invalid' ?>">
-                <?= $data->getField('body')->getValue() ?>
+                      class="form-control form-control <?= $data->getFieldByName('body')->isValidField() ? '' : 'is-invalid' ?>">
+                <?= $data->getFieldByName('body')->getValue() ?>
             </textarea>
-            <span class="invalid-feedback"><?= $data->getField('body')->getError() ?></span>
+            <span class="invalid-feedback"><?= $data->getFieldByName('body')->getError() ?></span>
         </div>
         <input type="submit" class="btn btn-success" value="Submit"/>
     </form>

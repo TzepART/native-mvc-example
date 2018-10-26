@@ -69,14 +69,15 @@ class Post
    }
 
     /**
+     * @param int $postId
      * @param $data
      * @return bool
      */
-    public function updatePost($data)
+    public function updatePostById(int $postId, $data)
    {
        $this->db->query('UPDATE post SET title = :title, body = :body where id = :id');
        // Bind values
-       $this->db->bind(':id', $data['id']);
+       $this->db->bind(':id', $postId);
        $this->db->bind(':title', $data['title']);
        $this->db->bind(':body', $data['body']);
 

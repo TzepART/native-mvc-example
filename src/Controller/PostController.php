@@ -67,7 +67,7 @@ class PostController extends BaseController
      */
     public function addAction()
     {
-        $postForm = (new PostForm($this->request))->initFields();
+        $postForm = (new PostForm($this->request))->initFieldsByRequest();
 
         if ($this->request->isPostRequest()) {
 
@@ -90,6 +90,63 @@ class PostController extends BaseController
         }
 
     }
+
+    /**
+     * @param $id
+     */
+    public function editAction($id)
+    {
+        $postForm = (new PostForm($this->request))->initFieldsByRequest();
+
+        if ($this->request->isPostRequest()) {
+
+            // Make sure no errors
+            if ($postForm->isValid()) {
+                // Validated
+                if ($this->postModel->updatePostById($id,$postForm->getFieldsAsArray())) {
+                    $this->alertMessageService->flash('post_message', 'Post Updated');
+                    $this->urlHelper->redirectAction('post');
+                } else {
+                    die('Something went wrong');
+                }
+            } else {
+                // Load the view
+                $this->view('post/edit', [$postForm,$id]);
+            }
+
+        } else {
+            // Get existing post from model
+            $post = $this->postModel->getPostById($id);
+            $data = [
+                'title' => $post->title,
+                'body' => $post->body,
+            ];
+
+            $postForm = (new PostForm($this->request))->initFieldsByArray($data);
+
+            $this->view('post/edit', [$postForm,$id]);
+        }
+
+    }
+
+    /**
+     * @param $id
+     */
+    public function deleteAction($id)
+    {
+        if ($this->request->isPostRequest()) {
+            if ($this->postModel->deletePost($id)) {
+                $this->alertMessageService->flash('post_message', 'Post removed');
+                $this->urlHelper->redirectAction('post');
+            } else {
+                die('Something went wrong');
+            }
+
+        } else {
+            $this->urlHelper->redirectAction('post');
+        }
+    }
+
 
 
 }

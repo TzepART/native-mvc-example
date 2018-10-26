@@ -88,7 +88,14 @@ abstract class AbstractForm
     /**
      * @return $this
      */
-    abstract public function initFields();
+    abstract public function initFieldsByRequest();
+
+
+    /**
+     * @param array $data
+     * @return $this
+     */
+    abstract public function initFieldsByArray(array $data);
 
 
     /**

@@ -37,7 +37,7 @@ class Request
     {
         $this->get = new RequestHelper($_GET);
 
-        if($this->isPostRequest()){
+        if($this->isPostRequest() && $_POST){
             // Sanitize POST Array
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $this->post = new RequestHelper($_POST);

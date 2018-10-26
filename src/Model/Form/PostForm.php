@@ -21,7 +21,7 @@ class PostForm extends AbstractForm
     /**
      * @return $this
      */
-    public function initFields()
+    public function initFieldsByRequest()
     {
         foreach ($this->getFieldNames() as $fieldName) {
             if($this->request->isPostRequest()){
@@ -35,6 +35,22 @@ class PostForm extends AbstractForm
         return $this;
     }
 
+    /**
+     * @param array $data
+     * @return $this
+     */
+    public function initFieldsByArray(array $data)
+    {
+        foreach ($this->getFieldNames() as $fieldName) {
+            if(isset($data[$fieldName]) && $data[$fieldName]){
+                $this->fields[$fieldName] = new StringField($fieldName, $data[$fieldName]);
+            }else{
+                $this->fields[$fieldName] = new StringField($fieldName, '');
+            }
+        }
+        return $this;
+    }
+
 
     /**
      * @return array
@@ -42,8 +58,8 @@ class PostForm extends AbstractForm
     protected function getFieldNames()
     {
         return [
-          'title',
-          'body'
+            'title',
+            'body'
         ];
     }
 }

@@ -5,9 +5,11 @@
         <h1>Posts</h1>
     </div>
     <div class="col-md-6">
-        <a href="<?php echo URL_ROOT; ?>/post/add" class="btn btn-primary pull-right">
-            <i class="fa fa-pencil"></i> Add Post
-        </a>
+        <?php if( isset($_SESSION['user_login'])) : ?>
+            <a href="<?php echo URL_ROOT; ?>/post/add" class="btn btn-primary pull-right">
+                <i class="fa fa-pencil"></i> Add Post
+            </a>
+        <?php endif; ?>
     </div>
 </div>
 <?php foreach($data['posts'] as $post) : ?>

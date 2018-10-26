@@ -59,7 +59,7 @@ class PostForm extends AbstractForm
     {
         return [
             'title',
-            'body'
+            'body',
         ];
     }
 }

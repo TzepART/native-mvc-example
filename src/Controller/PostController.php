@@ -6,6 +6,7 @@ use Kernel\BaseController;
 use Model\Form\PostForm;
 use Model\Post;
 use Service\AlertMessageService;
+use Service\SecurityService;
 
 /**
  * Class PostController
@@ -23,6 +24,11 @@ class PostController extends BaseController
      */
     private $alertMessageService;
 
+    /**
+     * @var SecurityService
+     */
+    private $securityService;
+
 
     /**
      * Posts constructor.
@@ -32,6 +38,7 @@ class PostController extends BaseController
         parent::__construct();
         $this->postModel = new Post();
         $this->alertMessageService = new AlertMessageService($this->sessionHelper);
+        $this->securityService = new SecurityService($this->sessionHelper);
     }
 
     /**
@@ -65,9 +72,15 @@ class PostController extends BaseController
 
     /**
      * Add post
+     * @throws \Exception
      */
     public function addAction()
     {
+        //check that user is logged
+        if(!$this->securityService->isLoggedIn()){
+            $this->urlHelper->redirectAction('user/login');
+        }
+
         $postForm = (new PostForm($this->request))->initFieldsByRequest();
 
         if ($this->request->isPostRequest()) {
@@ -79,7 +92,7 @@ class PostController extends BaseController
                     $this->alertMessageService->flash('post_message', 'Post Added');
                     $this->urlHelper->redirectAction('post');
                 } else {
-                    die('Something went wrong');
+                    throw new \Exception();
                 }
             } else {
                 // Load the view
@@ -95,9 +108,15 @@ class PostController extends BaseController
     /**
      * Update data of post
      * @param $id
+     * @throws \Exception
      */
     public function editAction($id)
     {
+        //check that user is logged
+        if(!$this->securityService->isLoggedIn()){
+            $this->urlHelper->redirectAction('user/login');
+        }
+
         $postForm = (new PostForm($this->request))->initFieldsByRequest();
 
         if ($this->request->isPostRequest()) {
@@ -109,7 +128,7 @@ class PostController extends BaseController
                     $this->alertMessageService->flash('post_message', 'Post Updated');
                     $this->urlHelper->redirectAction('post');
                 } else {
-                    die('Something went wrong');
+                    throw new \Exception();
                 }
             } else {
                 // Load the view
@@ -134,6 +153,7 @@ class PostController extends BaseController
     /**
      * Remove post
      * @param $id
+     * @throws \Exception
      */
     public function deleteAction($id)
     {
@@ -142,7 +162,7 @@ class PostController extends BaseController
                 $this->alertMessageService->flash('post_message', 'Post removed');
                 $this->urlHelper->redirectAction('post');
             } else {
-                die('Something went wrong');
+                throw new \Exception();
             }
 
         } else {

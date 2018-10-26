@@ -1,4 +1,5 @@
 <?php require APP_SRC_ROOT.'View/include/header.php' ?>
+<?php $data['alertMessageService']->flash('post_message'); ?>
 <div class="row mb-3">
     <div class="col-md-6">
         <h1>Posts</h1>

@@ -4,6 +4,7 @@ namespace Controller;
 
 use Kernel\BaseController;
 use Model\Post;
+use Service\AlertMessageService;
 
 /**
  * Class PostController
@@ -16,13 +17,20 @@ class PostController extends BaseController
      */
     private $postModel;
 
+    /**
+     * @var AlertMessageService
+     */
+    private $alertMessageService;
+
 
     /**
      * Posts constructor.
      */
     public function __construct()
     {
+        parent::__construct();
         $this->postModel = new Post();
+        $this->alertMessageService = new AlertMessageService($this->sessionHelper);
     }
 
     /**
@@ -33,6 +41,7 @@ class PostController extends BaseController
         $posts = $this->postModel->getPosts();
         $data = [
             'posts' => $posts,
+            'alertMessageService' => $this->alertMessageService
         ];
 
         $this->view('post/index', $data);

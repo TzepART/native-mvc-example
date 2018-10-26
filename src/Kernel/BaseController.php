@@ -3,6 +3,10 @@
 namespace Kernel;
 
 
+use Helper\SessionHelper;
+use Helper\UrlHelper;
+
+
 /**
  * Base Controller
  * Loads views
@@ -11,6 +15,24 @@ namespace Kernel;
 abstract class BaseController
 {
 
+    /**
+     * @var UrlHelper
+     */
+    protected $urlHelper;
+
+    /**
+     * @var SessionHelper
+     */
+    protected $sessionHelper;
+
+    /**
+     * Posts constructor.
+     */
+    public function __construct()
+    {
+        $this->urlHelper = new UrlHelper();
+        $this->sessionHelper = new SessionHelper();
+    }
 
     /**
      * Load view

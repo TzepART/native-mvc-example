@@ -12,7 +12,6 @@ abstract class BaseController
 {
 
 
-
     /**
      * Load view
      * @param $view

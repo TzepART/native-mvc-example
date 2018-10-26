@@ -7,7 +7,7 @@ use Kernel\Database;
 
 /**
  * Class Post
- * @package App\Model
+ * @package Model
  */
 class Post
 {
@@ -30,7 +30,7 @@ class Post
     public function getPosts()
    {
        $this->db->query('select p.id as post_id, p.title, p.body, p.created_at 
-                             from posts as p          
+                             from post as p          
                              order by p.created_at desc');
 
        return $this->db->resultSet();
@@ -43,7 +43,7 @@ class Post
      */
     public function getPostById($id)
    {
-       $this->db->query('select * from posts where id = :id');
+       $this->db->query('select * from post where id = :id');
        $this->db->bind(':id',$id);
        return $this->db->single();
    }
@@ -55,7 +55,7 @@ class Post
      */
     public function addPost($data)
    {
-       $this->db->query('INSERT INTO posts (title, body) values (:title, :body)');
+       $this->db->query('INSERT INTO post (title, body) values (:title, :body)');
        // Bind values
        $this->db->bind(':title', $data['title']);
        $this->db->bind(':body', $data['body']);
@@ -74,7 +74,7 @@ class Post
      */
     public function updatePost($data)
    {
-       $this->db->query('UPDATE posts SET title = :title, body = :body where id = :id');
+       $this->db->query('UPDATE post SET title = :title, body = :body where id = :id');
        // Bind values
        $this->db->bind(':id', $data['id']);
        $this->db->bind(':title', $data['title']);
@@ -94,7 +94,7 @@ class Post
      */
     public function deletePost($id)
    {
-       $this->db->query('DELETE FROM posts where id = :id');
+       $this->db->query('DELETE FROM post where id = :id');
        // Bind values
        $this->db->bind(':id', $id);
 

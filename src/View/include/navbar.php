@@ -13,5 +13,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo URL_ROOT; ?>/page/about">About</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo URL_ROOT;?>/post">Posts</a>
+            </li>
         </ul>
 </nav>

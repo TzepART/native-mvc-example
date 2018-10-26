@@ -6,7 +6,7 @@ use Kernel\BaseController;
 
 /**
  * Class PageController
- * @package App\Controller
+ * @package Controller
  */
 class PageController extends BaseController
 {

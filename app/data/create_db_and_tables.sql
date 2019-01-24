@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS `check24_db` DEFAULT CHARACTER SET utf8;
+CREATE DATABASE IF NOT EXISTS `native_mvc_db` DEFAULT CHARACTER SET utf8;
 
-USE `check24_db`;
+USE `native_mvc_db`;
 
 --
 -- Table structure for table `post`
@@ -15,5 +15,5 @@ CREATE TABLE `post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-ALTER TABLE `check24_db`.`post`
+ALTER TABLE `native_mvc_db`.`post`
 ADD COLUMN `user` VARCHAR(100) NULL AFTER `created_at`;

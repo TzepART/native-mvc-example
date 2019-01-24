@@ -31,7 +31,8 @@ final class Core
         return self::$instance;
     }
 
-    public function initResponse()
+
+    public function initResponse() : void
     {
         try{
             $router = new Router();

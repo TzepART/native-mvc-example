@@ -12,7 +12,7 @@ define('APP_ROOT', __DIR__.'/../../');
 define('APP_SRC_ROOT', __DIR__.'/../../src/');
 
 // URL Root
-define('URL_ROOT','http://127.0.0.1:8000');
+define('URL_ROOT','http://localhost:8000');
 
 // Site Name
 define('SITE_NAME', 'Native MVC Application');

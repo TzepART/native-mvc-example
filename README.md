@@ -1,4 +1,4 @@
-Check24 Blog
+Native MVC Application
 ==============
 
 For start this project you should:

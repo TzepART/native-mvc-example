@@ -55,7 +55,7 @@ class PostForm extends AbstractForm
     /**
      * @return array
      */
-    protected function getFieldNames()
+    protected function getFieldNames(): array
     {
         return [
             'title',

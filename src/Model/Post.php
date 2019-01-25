@@ -53,7 +53,7 @@ class Post
      * @param $data
      * @return bool
      */
-    public function addPost($data)
+    public function addPost($data): bool
    {
        $this->db->query('INSERT INTO post (title, body) values (:title, :body)');
        // Bind values
@@ -73,7 +73,7 @@ class Post
      * @param $data
      * @return bool
      */
-    public function updatePostById(int $postId, $data)
+    public function updatePostById(int $postId, $data): bool
    {
        $this->db->query('UPDATE post SET title = :title, body = :body where id = :id');
        // Bind values
@@ -93,7 +93,7 @@ class Post
      * @param $id
      * @return bool
      */
-    public function deletePost($id)
+    public function deletePost($id): bool
    {
        $this->db->query('DELETE FROM post where id = :id');
        // Bind values

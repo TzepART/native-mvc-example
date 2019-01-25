@@ -3,7 +3,8 @@
         "psr-4": {"": "src/"}
     },
     "require": {
-        "php": "7.1.* || 7.2.*"
+        "php": "7.1.* || 7.2.*",
+        "ext-pdo": "*"
     },
     "extra": {
         "public-dir": "public"

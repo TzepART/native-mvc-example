@@ -1,6 +1,7 @@
 <?php
 
 namespace Kernel;
+
 use Controller\PageController;
 
 
@@ -9,7 +10,7 @@ use Controller\PageController;
  *
  * Create URL & load core controller
  * URL FORMAT - /controller/method/params
- *
+ * TODO make refactoring
  * @package Kernel
  */
 class Router

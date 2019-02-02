@@ -59,7 +59,7 @@ class Router
         // Look in controllers for first value
         if (isset($this->url[1]) && file_exists(APP_SRC_ROOT.'Controller/' . ucwords($this->url[1]) . 'Controller.php')) {
             // If exists, set as controller
-            $this->currentController = 'Controller\\'.ucwords($this->url[1]).'Controller';
+            $this->currentController = 'App\\Controller\\'.ucwords($this->url[1]).'Controller';
             // Unset 0 url
             unset($this->url[1]);
         }

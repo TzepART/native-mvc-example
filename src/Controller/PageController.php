@@ -1,8 +1,8 @@
 <?php
 
-namespace Controller;
+namespace App\Controller;
 
-use Kernel\BaseController;
+use App\Kernel\BaseController;
 
 /**
  * Class PageController

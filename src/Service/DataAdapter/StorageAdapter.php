@@ -6,7 +6,7 @@
  * Time: 01:23
  */
 
-namespace Service\DataAdapter;
+namespace App\Service\DataAdapter;
 
 
 /**

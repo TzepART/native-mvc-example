@@ -6,10 +6,10 @@
  * Time: 01:25
  */
 
-namespace Model\Mapper;
+namespace App\Model\Mapper;
 
-use Entity\Post;
-use Service\DataAdapter\StorageAdapter;
+use App\Entity\Post;
+use App\Service\DataAdapter\StorageAdapter;
 
 /**
  * Class PostMapper
@@ -21,6 +21,7 @@ class PostMapper
      * @var StorageAdapter
      */
     private $adapter;
+
     /**
      * @param StorageAdapter $storage
      */
@@ -28,6 +29,7 @@ class PostMapper
     {
         $this->adapter = $storage;
     }
+
     /**
      * finds a post from storage based on ID and returns a Post object located
      * in memory. Normally this kind of logic will be implemented using the Repository pattern.

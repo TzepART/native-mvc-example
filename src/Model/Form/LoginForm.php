@@ -6,9 +6,9 @@
  * Time: 12:44
  */
 
-namespace Model\Form;
+namespace App\Model\Form;
 
-use Model\Form\Field\StringField;
+use App\Model\Form\Field\StringField;
 
 /**
  * Class LoginForm

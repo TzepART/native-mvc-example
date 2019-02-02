@@ -6,7 +6,7 @@
  * Time: 01:16
  */
 
-namespace Entity;
+namespace App\Entity;
 
 
 class Post

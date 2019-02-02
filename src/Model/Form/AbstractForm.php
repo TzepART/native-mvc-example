@@ -6,11 +6,11 @@
  * Time: 13:38
  */
 
-namespace Model\Form;
+namespace App\Model\Form;
 
 
-use Kernel\Request;
-use Model\Form\Field\AbstractFormField;
+use App\Kernel\Request;
+use App\Model\Form\Field\AbstractFormField;
 
 /**
  * Class AbstractForm

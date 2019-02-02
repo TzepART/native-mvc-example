@@ -1,8 +1,8 @@
 <?php
 
-namespace Kernel;
+namespace App\Kernel;
 
-use Controller\PageController;
+use App\Controller\PageController;
 
 
 /**

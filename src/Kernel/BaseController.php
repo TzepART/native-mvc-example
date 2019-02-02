@@ -1,10 +1,10 @@
 <?php
 
-namespace Kernel;
+namespace App\Kernel;
 
 
-use Helper\SessionHelper;
-use Helper\UrlHelper;
+use App\Helper\SessionHelper;
+use App\Helper\UrlHelper;
 
 
 /**

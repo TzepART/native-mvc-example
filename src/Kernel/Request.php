@@ -6,10 +6,10 @@
  * Time: 12:51
  */
 
-namespace Kernel;
+namespace App\Kernel;
 
 
-use Helper\RequestHelper;
+use App\Helper\RequestHelper;
 
 
 /**

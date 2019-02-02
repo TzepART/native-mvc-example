@@ -1,12 +1,12 @@
 <?php
 
-namespace Controller;
+namespace App\Controller;
 
-use Kernel\BaseController;
-use Model\Form\PostForm;
-use Model\Post;
-use Service\AlertMessageService;
-use Service\SecurityService;
+use App\Kernel\BaseController;
+use App\Model\Form\PostForm;
+use App\Model\Post;
+use App\Service\AlertMessageService;
+use App\Service\SecurityService;
 
 /**
  * Class PostController

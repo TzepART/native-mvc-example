@@ -1,12 +1,12 @@
 <?php
 
-namespace Controller;
+namespace App\Controller;
 
 
-use Kernel\BaseController;
-use Model\Form\LoginForm;
-use Service\AlertMessageService;
-use Service\SecurityService;
+use App\Kernel\BaseController;
+use App\Model\Form\LoginForm;
+use App\Service\AlertMessageService;
+use App\Service\SecurityService;
 
 
 /**

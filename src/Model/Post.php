@@ -1,9 +1,9 @@
 <?php
 
-namespace Model;
+namespace App\Model;
 
 
-use Kernel\Database;
+use App\Kernel\Database;
 
 /**
  * Class Post

@@ -3,6 +3,8 @@
 namespace App\Kernel;
 
 
+use App\Exception\HttpNotFoundException;
+
 /**
  * Class Core
  * @package Kernel
@@ -18,7 +20,9 @@ final class Core
     /**
      * Core constructor.
      */
-    private function __construct(){}
+    private function __construct()
+    {
+    }
 
     /**
      * @return Core
@@ -32,19 +36,34 @@ final class Core
     }
 
 
-    public function initResponse() : void
+    /**
+     *
+     */
+    public function initResponse(): void
     {
-        try{
+        try {
             $router = new Router();
             //Call a callback with array of params
             call_user_func_array([$router->getCurrentController(), $router->getCurrentMethod()], $router->getParams());
-        }catch (\Exception $exception){
-            require_once APP_ROOT."public/500.html";
+        } catch (HttpNotFoundException $exception) {
+            require_once APP_ROOT . "public/404.html";
+        } catch (\Exception $exception) {
+            require_once APP_ROOT . "public/500.html";
         }
     }
 
-    private function __clone(){}
+    /**
+     *
+     */
+    private function __clone()
+    {
+    }
 
-    private function __wakeup(){}
+    /**
+     *
+     */
+    private function __wakeup()
+    {
+    }
 
 }

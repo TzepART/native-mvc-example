@@ -3,6 +3,7 @@
 namespace App\Kernel;
 
 use App\Controller\PageController;
+use App\Exception\HttpNotFoundException;
 
 
 /**
@@ -53,15 +54,20 @@ class Router
 
     /**
      * @return string
+     * @throws HttpNotFoundException
      */
     public function getCurrentController()
     {
         // Look in controllers for first value
-        if (isset($this->url[1]) && file_exists(APP_SRC_ROOT.'Controller/' . ucwords($this->url[1]) . 'Controller.php')) {
-            // If exists, set as controller
-            $this->currentController = 'App\\Controller\\'.ucwords($this->url[1]).'Controller';
-            // Unset 0 url
-            unset($this->url[1]);
+        if (isset($this->url[1])) {
+            if(file_exists(APP_SRC_ROOT.'Controller/' . ucwords($this->url[1]) . 'Controller.php')){
+                // If exists, set as controller
+                $this->currentController = 'App\\Controller\\'.ucwords($this->url[1]).'Controller';
+                // Unset 0 url
+                unset($this->url[1]);
+            }else{
+                throw new HttpNotFoundException(HttpNotFoundException::DEFAULT_MESSAGE,HttpNotFoundException::DEFAULT_CODE);
+            }
         }
 
         // Instantiate controller class

@@ -6,8 +6,9 @@
  * Time: 23:05
  */
 
-namespace App\Exception;
+namespace App\Exception\Http;
 
+use App\Exception\ExceptionCode;
 
 /**
  * Class HttpNotFoundException

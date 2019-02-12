@@ -3,7 +3,7 @@
 namespace App\Kernel;
 
 
-use App\Exception\HttpNotFoundException;
+use App\Exception\Http\HttpNotFoundException;
 
 /**
  * Class Core
